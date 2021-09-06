@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+   <div class="Rotacion">
+      <head>
+         <title>Andres Piñeros</title>
+         <meta charset="UTF-8">
+         <link rel="stylesheet" type="text/css" href="estilo.css">
+         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+         </style>
+      </head>
+      <body>
+         <h1>Rotación:</h1>
+         <canvas id="canvas" width="1080" height="920"/>
+         <script>
+            function dibuja() {
+              var lienzo = document.getElementById('canvas');
+              if (lienzo.getContext) {
+                var ctx = lienzo.getContext('2d');
+            
+                ctx.fillRect(25, 25, 100, 100);
+                ctx.clearRect(45, 45, 60, 60);
+                ctx.strokeRect(50, 50, 50, 50);
+              }
+            }
+            
+            /*
+            window.addEventListener('resize',debounce(()
+            {
+                canvas.width=window.innerWidth
+                canvas.height=window.innerHeight
+            }))
+            */
+            
+            function triangulo(tab, x1, y1, x2, y2, x3, y3, fill=false) {
+                tab.beginPath();
+                tab.moveTo(x1, y1);
+                tab.lineTo(x2, y2);
+                tab.lineTo(x3, y3);
+                if (fill)
+                    tab.fill();
+                else {
+                    tab.closePath();
+                    tab.stroke();
+                }
+            }
+            function cuadrado(tab, xx1, yy1, xx2, yy2, xx3, yy3, xx4, yy4, fill=false) {
+                
+                tab.beginPath();
+            
+            
+                tab.moveTo(xx1, yy1);//lineas 
+                tab.lineTo(xx2, yy2);
+                tab.lineTo(xx3, yy3);
+                tab.lineTo(xx4, yy4);
+                tab.strokeStyle='#54E346';//Color de lineas
+                tab.closePath();
+                tab.stroke();
+            
+            }
+            
+            
+            
+            function draw() {
+              var canvas = document.getElementById('canvas');
+              if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                //ctx.fillStyle=red;
+            
+                Gr=3.5; // Grado de rotación
+                disX=540; // Coordenadas en X del cuadrado
+                disY=70; // Coordenadas en Y del cuadrado
+                lado=40; // Longitud delos lados
+            
+            
+            
+                // la formula es:         x' = x cos(angulo) - y sin(angulo)               y' = x sin(angulo) + y cos(angulo)
+                xx1=((-(lado)*Math.cos(Gr))-(-(lado)*Math.sin(Gr)))+disX; yy1= ((-(lado)*Math.sin(Gr))+(-(lado)*Math.cos(Gr)))+disY; 
+                xx2=(((lado)*Math.cos(Gr))-(-(lado)*Math.sin(Gr)))+disX; yy2= (((lado)*Math.sin(Gr))+(-(lado)*Math.cos(Gr)))+disY; 
+                xx3=(((lado)*Math.cos(Gr))-((lado)*Math.sin(Gr)))+disX; yy3= (((lado)*Math.sin(Gr))+((lado)*Math.cos(Gr)))+disY; 
+                xx4=((-(lado)*Math.cos(Gr))-((lado)*Math.sin(Gr)))+disX; yy4= ((-(lado)*Math.sin(Gr))+((lado)*Math.cos(Gr)))+disY;
+            
+                 // la formula es:         x' = x cos(angulo) - y sin(angulo)               y' = x sin(angulo) + y cos(angulo)
+            
+            
+            
+            
+            
+                /*x1=75; y1=50; x2=100; y2=75; x3=100; y3=25;
+                
+            
+                triangulo(ctx, x1, y1, x2, y2, x3, y3, true);
+                */
+                cuadrado(ctx, xx1, yy1, xx2, yy2, xx3, yy3, xx4, yy4, true)
+            /*
+                // Realizar traslacion del triangulo anterior con dx =70 y dy=50
+                dx=70; dy=50
+                triangulo(ctx, x1+dx, y1+dy, x2+dx, y2+dy, x3+dx, y3+dy);
+            
+                // Realizar un escalado del triangulo anterior con incremento del 50%
+                s=50
+            
+            
+                //triangulo(ctx, .....);
+                rx1=123; ry1=74; rancho=88; ralto=83
+                ctx.strokeRect(rx1, ry1, rancho, ralto);
+                ctx.strokeRect(rx1-(rancho*s/200), ry1-(ralto*s/200), rancho*(1+s/100), ralto*(1+s/100));
+            
+             */
+            
+            
+            
+                ctx.stroke();    
+              }
+            }
+            //dibuja();
+            draw();
+         </script>
+      </body>
+   </div>
+</html>

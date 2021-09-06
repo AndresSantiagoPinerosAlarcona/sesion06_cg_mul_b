@@ -1,5 +1,23 @@
+<!DOCTYPE html>
+<div class="formas">
+<html>
+<head>
+
+  <title>Andres Piñeros</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300&display=swap');
+  </style>
+
+</head>
+
+
 <body>
-<canvas id="canvas"/>
+
+    <h1>Formas:</h1>
+<canvas id="canvas" width="" height="920"/>
+
 <script>
 function dibuja() {
   var lienzo = document.getElementById('canvas');
@@ -34,11 +52,18 @@ function draw() {
     triangulo(ctx, x1, y1, x2, y2, x3, y3, true);
 
     // Realizar traslacion del triangulo anterior con dx =70 y dy=50
-    dx=70;  dy=50;
+    dx=70; dy=50;
     triangulo(ctx, x1+dx, y1+dy, x2+dx, y2+dy, x3+dx, y3+dy);
   }
 }
 //dibuja();
 draw();
+
+
 </script>
+
+
+
 </body>
+</div>
+</html>
